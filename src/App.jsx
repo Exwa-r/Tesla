@@ -1,14 +1,15 @@
-import { useState } from "react";
-import "./App.css";
+import React from "react";
+import Homepage from "./Pages/HomePage/Homepage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
-        <h1>hello World</h1>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Homepage />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

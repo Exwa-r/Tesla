@@ -104,6 +104,25 @@ export default function Navbar() {
     },
   ];
 
+  const shop_items = [
+    {
+      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Charging.png",
+      name: "Charging",
+    },
+    {
+      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Vehicle-Accessories.png",
+      name: "Vehicle Accessories",
+    },
+    {
+      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Apparel.png",
+      name: "Apparel",
+    },
+    {
+      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Lifestyle.png",
+      name: "Lifestyle",
+    },
+  ];
+
   return (
     <>
       <nav
@@ -311,28 +330,77 @@ export default function Navbar() {
           </div>
         )}
         {discoveropen && (
-          <div className="bg-white h-[22rem] w-screen z-20  ">
-            <div className="flex gap-[10%] justify-center pt-[3%]">
+          <div className="bg-white h-[25rem] w-screen z-20  ">
+            <div className="flex gap-[10%] justify-center pt-[3%] font-medium ">
               <div className="flex flex-col ">
-                <p>Resources</p>
-                <a href="">Demo Drive</a>
-                <a href="">Insurance</a>
-                <a href="">Video Guides</a>
-                <a href="">Customer Stories</a>
-                <a href="">Events</a>
+                <p className="text-gray-500">Resources</p>
+                <a className="pt-[20%]" href="">
+                  Demo Drive
+                </a>
+                <a className="pt-[10%]" href="">
+                  Insurance
+                </a>
+                <a className="pt-[10%]" href="">
+                  Military Purchase Program
+                </a>
+                <a className="pt-[10%]" href="">
+                  Video Guides
+                </a>
+                <a className="pt-[10%]" href="">
+                  Customer Stories
+                </a>
+                <a className="pt-[10%]" href="">
+                  Events
+                </a>
               </div>
               <div className="flex flex-col">
-                <p>Location Services</p>
-                <a href="">Find Us</a>
-                <a href="">Find a Collision Center</a>
-                <a href="">Find a Certified Installer</a>
+                <p className="text-gray-500">Location Services</p>
+                <a className="pt-[20%]" href="">
+                  Find Us
+                </a>
+                <a className="pt-[10%]" href="">
+                  Find a Collision Center
+                </a>
+                <a className="pt-[10%]" href="">
+                  Find a Certified Installer
+                </a>
               </div>
               <div className="flex flex-col">
-                <p>Company</p>
-                <a href="">About</a>
-                <a href="">Careers</a>
-                <a href="">Investor Relations</a>
+                <p className="text-gray-500">Company</p>
+                <a className="pt-[20%]" href="">
+                  About
+                </a>
+                <a className="pt-[10%]" href="">
+                  Careers
+                </a>
+                <a className="pt-[10%]" href="">
+                  Investor Relations
+                </a>
               </div>
+            </div>
+          </div>
+        )}
+        {shopopen && (
+          <div className="bg-white h-[18rem] w-screen z-20 flex pl-[10%]">
+            <div className="grid grid-cols-4 w-[70%] pt-[2.5%] h-[60%] pl-[10%]">
+              {shop_items.map((props) => (
+                <>
+                  <div className="flex flex-col items-center pt-[8%]">
+                    <a href="">
+                      <img
+                        className="h-[100%] w-[100%]"
+                        src={props.img}
+                        alt=""
+                      />
+                    </a>
+                    <div>
+                      <h3 className="font-semibold text-lg pt-[9%] ">
+                        {props.name}
+                      </h3>
+                    </div>
+                  </div>
+                </>
+              ))}
             </div>
           </div>
         )}

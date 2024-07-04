@@ -140,10 +140,10 @@ export default function Navbar() {
         ]}
       >
         <div className="flex ">
-          <div className="-my-[2.7%]  pl-[3%] pt-[4%]">
+          <div className="-my-[6.5%]  pl-[3%] pt-[4%]">
             <button href="#">
               <svg
-                className="size-[50%]"
+                className="size-32"
                 viewBox="0 0 342 35"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -154,43 +154,43 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
-          <div className="flex list-none gap-10 text-gray-900 pl-[17rem] pt-[1%] font-semibold">
+          <div className="flex list-none gap-6 text-gray-900 pl-[24rem] pt-[1%] font-semibold text-sm">
             <li
-              className="p-1 bg-transparent cursor-pointer"
+              className="p-1 hover:bg-slate-100 hover:rounded-md cursor-pointer"
               onMouseEnter={() => vehicle()}
             >
               Vehicles
             </li>
             <li
-              className="p-1 bg-transparent cursor-pointer"
+              className="p-1 hover:bg-slate-100 hover:rounded-md bg-transparent cursor-pointer"
               onMouseEnter={() => energy()}
             >
               Energy
             </li>
             <li
-              className="p-1 bg-transparent cursor-pointer"
+              className="p-1 hover:bg-slate-100 hover:rounded-md bg-transparent cursor-pointer"
               onMouseEnter={() => charging()}
             >
               Charging
             </li>
             <li
-              className="p-1 bg-transparent cursor-pointer"
+              className="p-1 hover:bg-slate-100 hover:rounded-md bg-transparent cursor-pointer"
               onMouseEnter={() => discover()}
             >
               Discover
             </li>
             <li
-              className="p-1 bg-transparent cursor-pointer"
+              className="p-1 hover:bg-slate-100 hover:rounded-md bg-transparent cursor-pointer"
               onMouseEnter={() => shop()}
             >
               Shop
             </li>
           </div>
-          <div className="flex list-none gap-4 pl-[28rem] pt-5">
+          <div className="flex list-none gap-2 pl-[28rem] pt-5">
             <li>
               <a href="">
                 <svg
-                  class="size-7"
+                  class="size-6"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -204,7 +204,7 @@ export default function Navbar() {
             <li>
               <a href="">
                 <svg
-                  class="size-7"
+                  class="size-6"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -218,7 +218,7 @@ export default function Navbar() {
             <li>
               <a href="">
                 <svg
-                  class="size-7"
+                  class="size-6"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -233,12 +233,12 @@ export default function Navbar() {
         </div>
         {vehicleopen && (
           <div className="bg-white h-[30rem] w-screen z-20 flex">
-            <div className="grid grid-cols-4 w-[70%] pt-[2%] h-[60%] pl-[10%]">
+            <div className="grid grid-cols-4 w-[70%] pt-[4%] h-[60%] pl-[10%]">
               {vehicle_items.map((props) => (
                 <>
                   <div className="flex flex-col items-center pt-[8%]">
                     <a href="">
-                      <img className="h-32 w-56" src={props.img} alt="" />
+                      <img className="h-28 w-48" src={props.img} alt="" />
                     </a>
                     <div>
                       <h3 className="font-semibold">{props.name}</h3>

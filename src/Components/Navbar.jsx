@@ -267,7 +267,7 @@ export default function Navbar() {
         )}
         {energyopen && (
           <div className="bg-white h-[22rem] w-screen z-20 flex">
-            <div className="grid grid-cols-4 w-[70%] pt-[2%] h-[60%] pl-[10%]">
+            <div className="grid grid-cols-4 w-[70%] pt-[4%] h-[60%] pl-[10%]">
               {energy_items.map((props) => (
                 <>
                   <div className="flex flex-col items-center pt-[8%]">
@@ -299,7 +299,7 @@ export default function Navbar() {
         )}
         {chargingopen && (
           <div className="bg-white h-[22rem] w-screen z-20 flex pl-[10%]">
-            <div className="grid grid-cols-4 w-[70%] pt-[2%] h-[60%] pl-[10%]">
+            <div className="grid grid-cols-4 w-[70%] pt-[4%] h-[60%] pl-[10%]">
               {charging_items.map((props) => (
                 <>
                   <div className="flex flex-col items-center pt-[8%]">
@@ -331,7 +331,7 @@ export default function Navbar() {
         )}
         {discoveropen && (
           <div className="bg-white h-[25rem] w-screen z-20  ">
-            <div className="flex gap-[10%] justify-center pt-[3%] font-medium ">
+            <div className="flex gap-[10%] justify-center pt-[8%] font-medium ">
               <div className="flex flex-col ">
                 <p className="text-gray-500">Resources</p>
                 <a className="pt-[20%]" href="">

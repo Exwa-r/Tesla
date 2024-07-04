@@ -140,10 +140,10 @@ export default function Navbar() {
         ]}
       >
         <div className="flex ">
-          <div className="-my-8  pl-14">
+          <div className="-my-[2.7%]  pl-[3%] pt-[4%]">
             <button href="#">
               <svg
-                className="size-32"
+                className="size-[50%]"
                 viewBox="0 0 342 35"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -154,7 +154,7 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
-          <div className="flex list-none gap-10 text-gray-900 pl-[28rem] pt-5 font-semibold">
+          <div className="flex list-none gap-10 text-gray-900 pl-[17rem] pt-[1%] font-semibold">
             <li
               className="p-1 bg-transparent cursor-pointer"
               onMouseEnter={() => vehicle()}
@@ -186,7 +186,7 @@ export default function Navbar() {
               Shop
             </li>
           </div>
-          <div className="flex list-none gap-4 pl-[24rem] pt-5">
+          <div className="flex list-none gap-4 pl-[28rem] pt-5">
             <li>
               <a href="">
                 <svg

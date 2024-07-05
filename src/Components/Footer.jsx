@@ -9,9 +9,9 @@ export default function Footer() {
   ];
   return (
     <>
-      <div className="text-center bg-black text-white">
+      <div className="text-center bg-black text-gray-300">
         <footer>
-          <div className="py-14 font-medium text-sm ">
+          <div className="py-14 font-medium text-xs sm:text-sm p-7">
             {items.map((props) => (
               <>
                 <p>
@@ -24,7 +24,7 @@ export default function Footer() {
               </>
             ))}
           </div>
-          <div className="flex gap-4 list-none w-full justify-center font-medium text-sm pb-3 -mt-5">
+          <div className="flex sm:flex-row flex-col gap-2  sm:gap-4 list-none w-full justify-center font-medium text-xs sm:text-sm pb-3 -mt-5">
             <li>
               <a href="">Tesla © 2024</a>
             </li>
@@ -34,16 +34,16 @@ export default function Footer() {
             <li>
               <a href="">Vehicle Recalls</a>
             </li>
-            <li>
+            <li className="sm:block hidden">
               <a href="">Contact</a>
             </li>
             <li>
               <a href="">News</a>
             </li>
-            <li>
+            <li className="sm:block hidden">
               <a href="">Get Updates</a>
             </li>
-            <li>
+            <li className="sm:block hidden">
               <a href="">Locations</a>
             </li>
           </div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Scroll from "./Scroll";
 
 export default function Navbar() {
   const [vehicleopen, setvehicleopen] = useState(false);
@@ -6,6 +7,12 @@ export default function Navbar() {
   const [chargingopen, setchargingopen] = useState(false);
   const [discoveropen, setdiscoveropen] = useState(false);
   const [shopopen, setshopopen] = useState(false);
+  const [menuopen, setmenuopen] = useState(false);
+
+  function Togglemenu() {
+    setmenuopen(false);
+    document.body.style.overflow = "unset";
+  }
 
   function energy() {
     setenergyopen(true);
@@ -140,7 +147,7 @@ export default function Navbar() {
         ]}
       >
         <div className="flex ">
-          <div className="-my-[6.5%]  pl-[3%] pt-[4%]">
+          <div className="-my-[25%] sm:-my-[6.5%] pl-[10%] sm:pl-[3%] pt-[4%]">
             <button href="#">
               <svg
                 className="size-32"
@@ -154,7 +161,10 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
-          <div className="flex list-none gap-6 text-gray-900 pl-[24rem] pt-[1%] font-semibold text-sm">
+          <div className="sm:hidden  ml-[100%] mt-[4%] rounded-lg p-2 px-4  bg-[#4590c6] text-sm font-semibold flex">
+            <button onClick={() => setmenuopen(!menuopen)}>Menu</button>
+          </div>
+          <div className=" list-none gap-6 text-gray-900 pl-[24rem] pt-[1%] font-semibold text-sm hidden sm:flex ">
             <li
               className="p-1 hover:bg-slate-100 hover:rounded-md cursor-pointer"
               onMouseEnter={() => vehicle()}
@@ -186,7 +196,7 @@ export default function Navbar() {
               Shop
             </li>
           </div>
-          <div className="flex list-none gap-2 pl-[28rem] pt-5">
+          <div className="sm:flex hidden list-none gap-2 pl-[28rem] pt-5">
             <li>
               <a href="">
                 <svg
@@ -331,7 +341,7 @@ export default function Navbar() {
         )}
         {discoveropen && (
           <div className="bg-white h-[25rem] w-screen z-20  ">
-            <div className="flex gap-[10%] justify-center pt-[8%] font-medium ">
+            <div className="flex gap-[10%] justify-center pt-[3%] font-medium ">
               <div className="flex flex-col ">
                 <p className="text-gray-500">Resources</p>
                 <a className="pt-[20%]" href="">
@@ -404,6 +414,7 @@ export default function Navbar() {
             </div>
           </div>
         )}
+        {menuopen && <Scroll Togglemenu={Togglemenu} />}
       </nav>
     </>
   );

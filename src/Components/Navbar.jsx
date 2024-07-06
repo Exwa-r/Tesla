@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import Scroll from "./Scroll";
+import Menu_open from "./Navbar_components/Menu_open";
+import Vehicle_open from "./Navbar_components/Vehicle_open";
+import Energy_open from "./Navbar_components/Energy_open";
+import Charging_open from "./Navbar_components/Charging_open";
+import Discover_open from "./Navbar_components/Discover_open";
+import Shop_open from "./Navbar_components/Shop_open";
 
 export default function Navbar() {
   const [vehicleopen, setvehicleopen] = useState(false);
@@ -49,86 +54,6 @@ export default function Navbar() {
     setshopopen(true);
     setdiscoveropen(false);
   }
-
-  const vehicle_items = [
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-S.png",
-      name: "Model 3",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-3-Performance-LHD.png",
-      name: "Model S",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-X.png",
-      name: "Model X",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-Y.png",
-      name: "Model Y",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Cybertruck-1x.png",
-      name: "CyberTruck",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-HMC-RedBlue-LHD.png",
-      name: "Help Me Choose",
-    },
-  ];
-
-  const energy_items = [
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Solar-Roof.png",
-      name: "Solar Panel",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Solar-Panels.png",
-      name: "Solar Roof",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Powerwall-US.png",
-      name: "Powerwall",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Energy-Megapack.png",
-      name: "Megapack",
-    },
-  ];
-
-  const charging_items = [
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Charging.png",
-      name: "Charging",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Home-Charging.png",
-      name: "Home Charging",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Charging-Supercharging-NA.png",
-      name: "Supercharging",
-    },
-  ];
-
-  const shop_items = [
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Charging.png",
-      name: "Charging",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Vehicle-Accessories.png",
-      name: "Vehicle Accessories",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Apparel.png",
-      name: "Apparel",
-    },
-    {
-      img: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Lifestyle.png",
-      name: "Lifestyle",
-    },
-  ];
 
   return (
     <>
@@ -241,180 +166,12 @@ export default function Navbar() {
             </li>
           </div>
         </div>
-        {vehicleopen && (
-          <div className="bg-white h-[30rem] w-screen z-20 flex">
-            <div className="grid grid-cols-4 w-[70%] pt-[4%] h-[60%] pl-[10%]">
-              {vehicle_items.map((props) => (
-                <>
-                  <div className="flex flex-col items-center pt-[8%]">
-                    <a href="">
-                      <img className="h-28 w-48" src={props.img} alt="" />
-                    </a>
-                    <div>
-                      <h3 className="font-semibold">{props.name}</h3>
-                    </div>
-                    <div className="flex gap-3 underline">
-                      <a href="">Learn</a>
-                      <a href="">Order</a>
-                    </div>
-                  </div>
-                </>
-              ))}
-            </div>
-            <div className="h-[70%] w-[0.01%] bg-gray-200 mt-[4%]"></div>
-            <div className="flex flex-col pl-[4%] pt-[4%] gap-3 font-medium ">
-              <a href="">Inventory</a>
-              <a href="">Used Cars</a>
-              <a href="">Demo Drive</a>
-              <a href="">Trade-in</a>
-              <a href="">Compare</a>
-              <a href="">Help Me Charge</a>
-              <a href="">Fleet</a>
-              <a href="">Semi</a>
-              <a href="">Roadster</a>
-            </div>
-          </div>
-        )}
-        {energyopen && (
-          <div className="bg-white h-[22rem] w-screen z-20 flex">
-            <div className="grid grid-cols-4 w-[70%] pt-[4%] h-[60%] pl-[10%]">
-              {energy_items.map((props) => (
-                <>
-                  <div className="flex flex-col items-center pt-[8%]">
-                    <a href="">
-                      <img className="h-32 w-56" src={props.img} alt="" />
-                    </a>
-                    <div>
-                      <h3 className="font-semibold">{props.name}</h3>
-                    </div>
-                    <div className="flex gap-3 underline">
-                      <a href="">Learn</a>
-                      <a href="">Order</a>
-                    </div>
-                  </div>
-                </>
-              ))}
-            </div>
-            <div className="h-[70%] w-[0.01%] bg-gray-200 mt-[4%]"></div>
-            <div className="flex flex-col pl-[4%] pt-[4%] gap-3 font-medium ">
-              <a href="">Schedule a Consultation</a>
-              <a href="">Why Solar</a>
-              <a href="">Incentives</a>
-              <a href="">Support</a>
-              <a href="">Partner with Tesla</a>
-              <a href="">Commercial</a>
-              <a href="">Utilities</a>
-            </div>
-          </div>
-        )}
-        {chargingopen && (
-          <div className="bg-white h-[22rem] w-screen z-20 flex pl-[10%]">
-            <div className="grid grid-cols-4 w-[70%] pt-[4%] h-[60%] pl-[10%]">
-              {charging_items.map((props) => (
-                <>
-                  <div className="flex flex-col items-center pt-[8%]">
-                    <a href="">
-                      <img className="h-32 w-56" src={props.img} alt="" />
-                    </a>
-                    <div>
-                      <h3 className="font-semibold">{props.name}</h3>
-                    </div>
-                    <div className="flex gap-3 underline">
-                      <a href="">Learn</a>
-                      <a href="">Order</a>
-                    </div>
-                  </div>
-                </>
-              ))}
-            </div>
-            <div className="h-[70%] w-[0.01%] bg-gray-200 mt-[4%] -ml-[10%]"></div>
-            <div className="flex flex-col pl-[4%] pt-[4%] gap-3 font-medium ">
-              <a href="">Help Me Charge</a>
-              <a href="">Charging Calculator</a>
-              <a href="">Charging With NACS</a>
-              <a href="">Supercharger Voting</a>
-              <a href="">Host a Supercharger</a>
-              <a href="">Commercial Charging</a>
-              <a href="">Host Wall Connectors</a>
-            </div>
-          </div>
-        )}
-        {discoveropen && (
-          <div className="bg-white h-[25rem] w-screen z-20  ">
-            <div className="flex gap-[10%] justify-center pt-[3%] font-medium ">
-              <div className="flex flex-col ">
-                <p className="text-gray-500">Resources</p>
-                <a className="pt-[20%]" href="">
-                  Demo Drive
-                </a>
-                <a className="pt-[10%]" href="">
-                  Insurance
-                </a>
-                <a className="pt-[10%]" href="">
-                  Military Purchase Program
-                </a>
-                <a className="pt-[10%]" href="">
-                  Video Guides
-                </a>
-                <a className="pt-[10%]" href="">
-                  Customer Stories
-                </a>
-                <a className="pt-[10%]" href="">
-                  Events
-                </a>
-              </div>
-              <div className="flex flex-col">
-                <p className="text-gray-500">Location Services</p>
-                <a className="pt-[20%]" href="">
-                  Find Us
-                </a>
-                <a className="pt-[10%]" href="">
-                  Find a Collision Center
-                </a>
-                <a className="pt-[10%]" href="">
-                  Find a Certified Installer
-                </a>
-              </div>
-              <div className="flex flex-col">
-                <p className="text-gray-500">Company</p>
-                <a className="pt-[20%]" href="">
-                  About
-                </a>
-                <a className="pt-[10%]" href="">
-                  Careers
-                </a>
-                <a className="pt-[10%]" href="">
-                  Investor Relations
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
-        {shopopen && (
-          <div className="bg-white h-[18rem] w-screen z-20 flex pl-[10%]">
-            <div className="grid grid-cols-4 w-[70%] pt-[2.5%] h-[60%] pl-[10%]">
-              {shop_items.map((props) => (
-                <>
-                  <div className="flex flex-col items-center pt-[8%]">
-                    <a href="">
-                      <img
-                        className="h-[100%] w-[100%]"
-                        src={props.img}
-                        alt=""
-                      />
-                    </a>
-                    <div>
-                      <h3 className="font-semibold text-lg pt-[9%] ">
-                        {props.name}
-                      </h3>
-                    </div>
-                  </div>
-                </>
-              ))}
-            </div>
-          </div>
-        )}
-        {menuopen && <Scroll Togglemenu={Togglemenu} />}
+        {vehicleopen && <Vehicle_open />}
+        {energyopen && <Energy_open />}
+        {chargingopen && <Charging_open />}
+        {discoveropen && <Discover_open />}
+        {shopopen && <Shop_open />}
+        {menuopen && <Menu_open Togglemenu={Togglemenu} />}
       </nav>
     </>
   );

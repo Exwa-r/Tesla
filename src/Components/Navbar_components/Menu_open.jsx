@@ -1,60 +1,40 @@
 import React, { useState } from "react";
 import Vehicle_open from "./Vehicle_open";
+import Energy_open from "./Energy_open";
+import Charging_open from "./Charging_open";
+import Discover_open from "./Discover_open";
 
 export default function Scroll({ Togglemenu }) {
-  const [vehicleopen, setvehicleopen] = useState(false);
-  const [energyopen, setenergyopen] = useState(false);
-  const [chargingopen, setchargingopen] = useState(false);
-  const [discoveropen, setdiscoveropen] = useState(false);
-  const [shopopen, setshopopen] = useState(false);
+  const [sectionOpen, setSectionOpen] = useState(null);
 
-  function energy() {
-    setenergyopen(true);
-    setvehicleopen(false);
-    setchargingopen(false);
-    setshopopen(false);
-    setdiscoveropen(false);
-  }
-  function vehicle() {
-    setenergyopen(false);
-    setvehicleopen(true);
-    setchargingopen(false);
-    setshopopen(false);
-    setdiscoveropen(false);
-  }
-  function discover() {
-    setenergyopen(false);
-    setvehicleopen(false);
-    setchargingopen(false);
-    setshopopen(false);
-    setdiscoveropen(true);
-  }
-  function charging() {
-    setenergyopen(false);
-    setvehicleopen(false);
-    setchargingopen(true);
-    setshopopen(false);
-    setdiscoveropen(false);
-  }
+  const handleMenuClick = (section) => {
+    setSectionOpen(section);
+    Togglemenu(); // Close mobile menu on section click
+  };
 
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow = sectionOpen ? "hidden" : "unset";
+
   return (
-    <div className="flex flex-col absolute bg-white  h-screen w-screen ">
+    <div className="flex flex-col absolute bg-white h-screen w-screen">
+      {/* Toggle Menu Button (Mobile) */}
       <button
         className="ml-auto bg-gray-100 p-1 mr-3 mt-3"
-        onClick={() => Togglemenu()}
+        onClick={() => {
+          Togglemenu();
+          document.body.style.overflow = "unset";
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer "
+          className="cursor-pointer"
           width="26"
           height="26"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="#2c3e50"
           fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M18 6l-12 12" />
@@ -62,82 +42,56 @@ export default function Scroll({ Togglemenu }) {
         </svg>
       </button>
 
+      {/* Mobile Menu Items */}
       <div className="mt-[15%]">
-        <ul className="flex flex-col gap-10 text-lg font-semibold text-gray-700">
-          <a href="">
-            <li
-              className="flex justify-between ml-[7%]"
-              onClick={() => vehicle()}
-            >
-              Vehicles <span className="mr-[7%]">&#62;</span>{" "}
-            </li>
-          </a>
-          <a href="">
-            <li
-              className="flex justify-between ml-[7%]"
-              onClick={() => energy()}
-            >
-              Energy <span className="mr-[7%]">&#62;</span>{" "}
-            </li>
-          </a>
-          <a href="">
-            <li
-              className="flex justify-between ml-[7%]"
-              onClick={() => charging()}
-            >
-              Charging <span className="mr-[7%]">&#62;</span>{" "}
-            </li>
-          </a>
-          <a href="">
-            <li
-              className="flex justify-between ml-[7%]"
-              onClick={() => discover()}
-            >
-              Discover <span className="mr-[7%]">&#62;</span>{" "}
-            </li>
-          </a>
-          <a href="">
-            <li className="ml-[7%]">Shop </li>
-          </a>
-          <a href="">
-            <li className="ml-[7%]">Support </li>
-          </a>
-          <a href="">
-            <li className="flex ml-[7%]">
-              <div className="flex pr-[30%]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-world"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="#000000"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-                  <path d="M3.6 9h16.8" />
-                  <path d="M3.6 15h16.8" />
-                  <path d="M11.5 3a17 17 0 0 0 0 18" />
-                  <path d="M12.5 3a17 17 0 0 1 0 18" />
-                </svg>
-                <div className="flex flex-col w-[100%]">
-                  <div className="ml-[10%] ">United States </div>
-                  <div className="text-sm">English</div>
-                </div>
-              </div>
-              <div className="mr-[7%]"> &#62;</div>{" "}
-            </li>
-          </a>
-          <a href="">
-            <li className="ml-[7%]">Account </li>
-          </a>
+        <ul className="flex flex-col gap-4 md:gap-10 text-lg font-semibold text-gray-700">
+          <li
+            className={`flex justify-between ml-[7%] cursor-pointer`}
+            onClick={() => handleMenuClick("vehicle")}
+          >
+            Vehicles <span className="mr-[7%]">&#62;</span>{" "}
+          </li>
+          <li
+            className={`flex justify-between ml-[7%] cursor-pointer`}
+            onClick={() => handleMenuClick("energy")}
+          >
+            Energy <span className="mr-[7%]">&#62;</span>{" "}
+          </li>
+          <li
+            className={`flex justify-between ml-[7%] cursor-pointer`}
+            onClick={() => handleMenuClick("charging")}
+          >
+            Charging <span className="mr-[7%]">&#62;</span>{" "}
+          </li>
+          <li
+            className={`flex justify-between ml-[7%] cursor-pointer`}
+            onClick={() => handleMenuClick("discover")}
+          >
+            Discover <span className="mr-[7%]">&#62;</span>{" "}
+          </li>
+          <li className="ml-[7%]">Shop </li>
+          <li className="ml-[7%]">Support </li>
+          <li className="flex ml-[7%]">
+            <div className="flex pr-[30%]">
+              <img
+                src="flag.png"
+                alt=" "
+                className="size-15 rounded-md ml-[15%]"
+              />
+              <div className="text-xl">ES</div>
+              <div className="text-xl pr-[15%]"> </div>
+            </div>
+          </li>
         </ul>
       </div>
-      {vehicleopen && <Vehicle_open />}
+
+      {/* Mobile Section Components */}
+      <div className="relative">
+        {sectionOpen === "vehicle" && <Vehicle_open />}
+        {sectionOpen === "energy" && <Energy_open />}
+        {sectionOpen === "charging" && <Charging_open />}
+        {sectionOpen === "discover" && <Discover_open />}
+      </div>
     </div>
   );
 }

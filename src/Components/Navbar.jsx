@@ -7,71 +7,27 @@ import Discover_open from "./Navbar_components/Discover_open";
 import Shop_open from "./Navbar_components/Shop_open";
 
 export default function Navbar() {
-  const [vehicleopen, setvehicleopen] = useState(false);
-  const [energyopen, setenergyopen] = useState(false);
-  const [chargingopen, setchargingopen] = useState(false);
-  const [discoveropen, setdiscoveropen] = useState(false);
-  const [shopopen, setshopopen] = useState(false);
-  const [menuopen, setmenuopen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [menuopen, setMenuOpen] = useState(false);
 
-  function Togglemenu() {
-    setmenuopen(false);
+  const handleMenuClick = (menu) => {
+    setActiveMenu(menu);
+  };
+
+  const closeMenu = () => {
+    setActiveMenu(null);
     document.body.style.overflow = "unset";
-  }
-
-  function energy() {
-    setenergyopen(true);
-    setvehicleopen(false);
-    setchargingopen(false);
-    setshopopen(false);
-    setdiscoveropen(false);
-  }
-  function vehicle() {
-    setenergyopen(false);
-    setvehicleopen(true);
-    setchargingopen(false);
-    setshopopen(false);
-    setdiscoveropen(false);
-  }
-  function discover() {
-    setenergyopen(false);
-    setvehicleopen(false);
-    setchargingopen(false);
-    setshopopen(false);
-    setdiscoveropen(true);
-  }
-  function charging() {
-    setenergyopen(false);
-    setvehicleopen(false);
-    setchargingopen(true);
-    setshopopen(false);
-    setdiscoveropen(false);
-  }
-  function shop() {
-    setenergyopen(false);
-    setvehicleopen(false);
-    setchargingopen(false);
-    setshopopen(true);
-    setdiscoveropen(false);
-  }
+  };
 
   return (
     <>
       <nav
-        className={`flex flex-col absolute z-20 ${[
-          vehicleopen || energyopen || chargingopen || discoveropen || shopopen
-            ? "bg-white rounded-b-3xl"
-            : "bg-none",
-        ]}`}
-        onMouseLeave={() => [
-          setvehicleopen(false),
-          setenergyopen(false),
-          setchargingopen(false),
-          setdiscoveropen(false),
-          setshopopen(false),
-        ]}
+        className={`flex flex-col absolute z-20 ${
+          activeMenu ? "bg-white rounded-b-3xl" : "bg-none"
+        }`}
+        onMouseLeave={closeMenu}
       >
-        <div className="flex ">
+        <div className="flex">
           <div className="-my-[25%] sm:-my-[6.5%] pl-[10%] sm:pl-[3%] pt-[4%]">
             <button href="#">
               <svg
@@ -86,37 +42,37 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
-          <div className="sm:hidden  ml-[100%] mt-[4%] rounded-lg p-2 px-4  bg-[#4590c6] text-sm font-semibold flex">
-            <button onClick={() => setmenuopen(!menuopen)}>Menu</button>
+          <div className="sm:hidden ml-[100%] mt-[4%] rounded-lg p-2 px-4 bg-[#4590c6] text-sm font-semibold flex">
+            <button onClick={() => setMenuOpen(!menuopen)}>Menu</button>
           </div>
-          <div className=" list-none gap-6 text-gray-900 pl-[24rem] pt-[1%] font-semibold text-sm hidden sm:flex ">
+          <div className="list-none gap-6 text-gray-900 pl-[24rem] pt-[1%] font-semibold text-sm hidden sm:flex">
             <li
               className="p-1 hover:bg-slate-100 hover:rounded-md cursor-pointer"
-              onMouseEnter={() => vehicle()}
+              onMouseEnter={() => handleMenuClick("vehicle")}
             >
               Vehicles
             </li>
             <li
-              className="p-1 hover:bg-slate-100 hover:rounded-md bg-transparent cursor-pointer"
-              onMouseEnter={() => energy()}
+              className="p-1 hover:bg-slate-100 hover:rounded-md cursor-pointer"
+              onMouseEnter={() => handleMenuClick("energy")}
             >
               Energy
             </li>
             <li
-              className="p-1 hover:bg-slate-100 hover:rounded-md bg-transparent cursor-pointer"
-              onMouseEnter={() => charging()}
+              className="p-1 hover:bg-slate-100 hover:rounded-md cursor-pointer"
+              onMouseEnter={() => handleMenuClick("charging")}
             >
               Charging
             </li>
             <li
-              className="p-1 hover:bg-slate-100 hover:rounded-md bg-transparent cursor-pointer"
-              onMouseEnter={() => discover()}
+              className="p-1 hover:bg-slate-100 hover:rounded-md cursor-pointer"
+              onMouseEnter={() => handleMenuClick("discover")}
             >
               Discover
             </li>
             <li
-              className="p-1 hover:bg-slate-100 hover:rounded-md bg-transparent cursor-pointer"
-              onMouseEnter={() => shop()}
+              className="p-1 hover:bg-slate-100 hover:rounded-md cursor-pointer"
+              onMouseEnter={() => handleMenuClick("shop")}
             >
               Shop
             </li>
@@ -166,12 +122,12 @@ export default function Navbar() {
             </li>
           </div>
         </div>
-        {vehicleopen && <Vehicle_open />}
-        {energyopen && <Energy_open />}
-        {chargingopen && <Charging_open />}
-        {discoveropen && <Discover_open />}
-        {shopopen && <Shop_open />}
-        {menuopen && <Menu_open Togglemenu={Togglemenu} />}
+        {activeMenu === "vehicle" && <Vehicle_open />}
+        {activeMenu === "energy" && <Energy_open />}
+        {activeMenu === "charging" && <Charging_open />}
+        {activeMenu === "discover" && <Discover_open />}
+        {activeMenu === "shop" && <Shop_open />}
+        {menuopen && <Menu_open />}
       </nav>
     </>
   );
